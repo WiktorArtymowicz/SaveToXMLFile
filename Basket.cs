@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SaveToXMLFile
+{
+    public class Basket : SaveToXMLFile
+    {
+        private double _basketValue = 0;
+        private int _itemsQuantity = 0;
+
+        public double BasketValue { get => _basketValue; }
+        public int ItemsQuantity { get => _itemsQuantity; }
+
+        public Basket(double basketValue, int itemsQuantity)
+        {
+            _basketValue = basketValue;
+            _itemsQuantity = itemsQuantity;
+        }
+
+        public string SaveToXMLFile()
+        {
+            return $@"<?xml version=""1.0""?>
+                      <Basket>
+                        <Value>{_basketValue}</Value>
+                        <ItemsQuantity>{_itemsQuantity}</ItemsQuantity>
+                      </Basket>";
+        }
+    }
+}
