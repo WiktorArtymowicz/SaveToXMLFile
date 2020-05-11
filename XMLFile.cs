@@ -14,11 +14,6 @@ namespace SaveToXMLFile
         private List<T> _itemList = new List<T>();
         private string _data = string.Empty;
 
-        public XMLFile(T value)
-        {
-            _itemList.Add(value);
-        }
-
         public void AddToList(T value)
         {
             _itemList.Add(value);
