@@ -34,9 +34,8 @@ namespace SaveToXMLFile
             xmlWriterSettings.Indent = true;
 
             System.Reflection.MemberInfo info = typeof(T);
-            string fileName = info.Name;
 
-            XmlWriter xmlWriter = XmlWriter.Create($@"C:\Users\kurt4\Documents\{fileName}.xml", xmlWriterSettings);
+            XmlWriter xmlWriter = XmlWriter.Create($@"C:\Users\kurt4\Documents\{info.Name}.xml", xmlWriterSettings);
             xmlDocument.Save(xmlWriter);
         }
     }
