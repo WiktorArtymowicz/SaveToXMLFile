@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SaveToXMLFile
 {
-    public class Person : SaveToXMLFile
+    public class Person : ISaveToXMLFile
     {
         private string _name = string.Empty;
         private string _surname = string.Empty;
@@ -24,12 +24,7 @@ namespace SaveToXMLFile
 
         public string SaveToXMLFile()
         {
-            return $@"<?xml version=""1.0""?>
-                      <Person>
-                        <Name>{_name}</Name>
-                        <Surname>{_surname}</Surname>
-                        <Age>{_age}</Age>
-                      </Person>";
+            return $@"<Person> <Name>{_name}</Name> <Surname>{_surname}</Surname> <Age>{_age}</Age> </Person>";
         }
     }
 }

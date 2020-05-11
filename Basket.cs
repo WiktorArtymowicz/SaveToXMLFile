@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SaveToXMLFile
 {
-    public class Basket : SaveToXMLFile
+    public class Basket : ISaveToXMLFile
     {
         private double _basketValue = 0;
         private int _itemsQuantity = 0;
@@ -20,11 +20,7 @@ namespace SaveToXMLFile
 
         public string SaveToXMLFile()
         {
-            return $@"<?xml version=""1.0""?>
-                      <Basket>
-                        <Value>{_basketValue}</Value>
-                        <ItemsQuantity>{_itemsQuantity}</ItemsQuantity>
-                      </Basket>";
+            return $@"<Basket> <Value>{_basketValue}</Value> <ItemsQuantity>{_itemsQuantity}</ItemsQuantity> </Basket>";
         }
     }
 }

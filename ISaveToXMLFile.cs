@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SaveToXMLFile
 {
-    public interface SaveToXMLFile
+    public interface ISaveToXMLFile
     {
         string SaveToXMLFile();
     }
