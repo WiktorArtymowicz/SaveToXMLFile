@@ -13,6 +13,7 @@ namespace SaveToXMLFile
     {
         private List<T> _itemList = new List<T>();
         private string _data = string.Empty;
+        System.Reflection.MemberInfo info = typeof(T);
 
         public void AddToList(T value)
         {
@@ -26,17 +27,22 @@ namespace SaveToXMLFile
                 _data += item.SaveToXMLFile();
             }
 
+            CreateXML();
+        }
+
+        private void CreateXML()
+        {
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml($@"<Data>{_data}</Data>");
+            xmlDocument.LoadXml($@"<{info.Name}>{_data}</{info.Name}>");
             XmlNode node = xmlDocument.DocumentElement;
 
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
             xmlWriterSettings.Indent = true;
 
-            System.Reflection.MemberInfo info = typeof(T);
-
             XmlWriter xmlWriter = XmlWriter.Create($@"C:\Users\kurt4\Documents\{info.Name}.xml", xmlWriterSettings);
             xmlDocument.Save(xmlWriter);
+
+            Console.WriteLine($"Typ {info.Name} został zapisany do pliku XML");
         }
     }
 }
