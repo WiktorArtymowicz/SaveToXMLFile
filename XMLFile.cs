@@ -24,7 +24,7 @@ namespace SaveToXMLFile
         {
             foreach (var item in _itemList)
             {
-                _data += item.SaveToXMLFile();
+                _data += item.ToXML();
             }
 
             CreateXML();
@@ -39,10 +39,22 @@ namespace SaveToXMLFile
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
             xmlWriterSettings.Indent = true;
 
-            XmlWriter xmlWriter = XmlWriter.Create($@"C:\Users\kurt4\Documents\{info.Name}.xml", xmlWriterSettings);
+            XmlWriter xmlWriter = XmlWriter.Create($@"{CreateDirectory()}\{info.Name}.xml", xmlWriterSettings);
             xmlDocument.Save(xmlWriter);
 
             Console.WriteLine($"Typ {info.Name} został zapisany do pliku XML");
+        }
+
+        private string CreateDirectory()
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory() + "XMLFiles");
+
+            if (!directoryInfo.Exists)
+            {
+                directoryInfo.Create();
+            }
+
+            return directoryInfo.FullName;
         }
     }
 }

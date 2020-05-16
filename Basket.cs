@@ -18,7 +18,7 @@ namespace SaveToXMLFile
             _itemsQuantity = itemsQuantity;
         }
 
-        public string SaveToXMLFile()
+        public string ToXML()
         {
             return $@"<Basket> <Value>{_basketValue}</Value> <ItemsQuantity>{_itemsQuantity}</ItemsQuantity> </Basket>";
         }

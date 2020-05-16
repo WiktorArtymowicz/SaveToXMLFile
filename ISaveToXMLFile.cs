@@ -6,6 +6,6 @@ namespace SaveToXMLFile
 {
     public interface ISaveToXMLFile
     {
-        string SaveToXMLFile();
+        string ToXML();
     }
 }

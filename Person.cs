@@ -22,7 +22,7 @@ namespace SaveToXMLFile
             _age = age;
         }
 
-        public string SaveToXMLFile()
+        public string ToXML()
         {
             return $@"<Person> <Name>{_name}</Name> <Surname>{_surname}</Surname> <Age>{_age}</Age> </Person>";
         }
